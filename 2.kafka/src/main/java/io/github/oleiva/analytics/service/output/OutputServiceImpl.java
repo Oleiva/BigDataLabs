@@ -21,11 +21,11 @@ public class OutputServiceImpl implements OutputService {
     public void printEventData(List<EventData> top10Records){
         System.out.println("TOP 10 BITCOIN TRANSACTIONS");
         System.out.println("____________________________________________________________________________________________________________________");
-        System.out.println("# | id | microTimeStamp | order_type | amount | price | event |");
+        System.out.println("# | id | microTimeStamp           | type | price | amount | event");
         System.out.println("____________________________________________________________________________________________________________________");
         int i =0;
         for (EventData rec : top10Records) {
-            System.out.println(""+i+" | " + rec.getId() + " | " + rec.getMicroTimeStamp() + " | " + rec.getOrder_type() + " " + rec.getPrice() + " | " + rec.getAmount()+" | "+rec.getEvent());
+            System.out.println(""+i+" | " + rec.getId() + " | " + rec.getMicroTimeStamp() + " | " + rec.getOrder_type() + " |  " + rec.getPrice() + " | " + rec.getAmount()+" | "+rec.getEvent());
             i++;
         }
         System.out.println("____________________________________________________________________________________________________________________");
