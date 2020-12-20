@@ -13,6 +13,7 @@ import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class KafkaServiceImpl  implements KafkaService{
         int noMessageToFetch = 0;
 
         while (true) {
-            final ConsumerRecords<Long, String> consumerRecords = consumer.poll(100);
+            final ConsumerRecords<Long, String> consumerRecords = consumer.poll(Duration.ofMillis(100));
             try {
 
                 if (consumerRecords.count() == 0) {
@@ -48,7 +49,6 @@ public class KafkaServiceImpl  implements KafkaService{
 
                 processBatch(consumerRecords);
                 consumer.commitAsync();
-                Thread.sleep(BATCH_DELAY);
             } catch (Exception e) {
                 log.error(""+e);
             }
