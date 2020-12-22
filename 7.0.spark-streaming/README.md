@@ -12,3 +12,8 @@
 4. Prepare and run Nifi using Lab_7_spark_streaming.xml and default settings from Lab2
 5  Create gc bucket
 6. run Spark `./run_spark.sh`
+
+
+Troubleshooting:
+`**gs://spark-stream/out/_spark_metadata/9.compact doesn't exist when compacting batch 19**` 
+sudo -u hdfs hdfs dfs -rmr ${your_checkpoint_path}
