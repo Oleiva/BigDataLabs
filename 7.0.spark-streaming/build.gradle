@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+apply plugin: 'java-library'
+
+group = 'spark-streaming'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+buildscript {
+    ext {
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+
+    }
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.12.12'
+    implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '2.4.7'
+    implementation group: 'org.apache.spark', name: 'spark-sql_2.12', version: '2.4.7'
+    implementation group: 'org.apache.spark', name: 'spark-sql-kafka-0-10_2.12', version: '2.4.7'
+
+}
+
+repositories {
+    jcenter()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
