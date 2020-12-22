@@ -1,11 +1,10 @@
 # BigDataLabs
 
-## Spark-RDD
+## Spark-streaming
 
 1. Upload jar and sh script
 2. chmod +x run_spark.sh
-
-3. # Create a topic
+3. Create a topic
 `bin/kafka-topics.sh --create \
   --zookeeper localhost:2181 \
   --replication-factor 1 --partitions 13 \
