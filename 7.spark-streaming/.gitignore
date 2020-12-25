@@ -6,4 +6,5 @@
 /modules.xml
 /vcs.xml
 .idea
-.gradle
+/.gradle/*
+*.lock
