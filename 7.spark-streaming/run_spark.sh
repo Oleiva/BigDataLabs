@@ -21,7 +21,7 @@ fi
 
 if [[ -z "$BUCKET" ]];
 then
-  BUCKET="spark-stream"
+  BUCKET="spark-stream-test"
 fi
 
 if [[ -z "$OUTPUT_FOLDER" ]];
