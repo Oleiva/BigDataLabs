@@ -1,0 +1,10 @@
+# Default ignored files
+/.idea/workspace.xml
+.iml
+/codeStyles/codeStyleConfig.xml
+/misc.xml
+/modules.xml
+/vcs.xml
+build
+.idea
+.gradle
