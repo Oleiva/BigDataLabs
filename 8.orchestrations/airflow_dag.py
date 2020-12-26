@@ -20,13 +20,13 @@ output_file = os.path.join(
     dateTimePattern) + os.sep
 # Path to Hadoop wordcount example available on every Dataproc cluster.
 SPARK_JAR = (
-    'file:///usr/lib/spark-df-1.0.jar'
+    'file:///usr/lib/spark-data-frames-1.0.0-SNAPSHOT.jar'
 )
 
-flights_file = var_bucket_name + '/flights/' + 'flights.csv'
-airports_file = var_bucket_name + '/airports/' + 'airports.csv'
+in_file = var_bucket_name + '/in/'
+out_file = var_bucket_name + '/out/'
 
-executor_args = [flights_file, airports_file, output_file]
+executor_args = [in_file, out_file]
 
 
 default_dag_args = {
