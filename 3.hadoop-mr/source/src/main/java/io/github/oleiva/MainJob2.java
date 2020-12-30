@@ -38,6 +38,7 @@ public class MainJob2 {
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
         FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
 
+        // GLC: How many reducers daoes the job have?
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }

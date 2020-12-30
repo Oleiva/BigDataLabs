@@ -27,6 +27,7 @@ public class MainJob1 {
         Job job = Job.getInstance(conf, "word count");
         job.setJarByClass(MainJob1.class);
         job.setMapperClass(TokenizerMapper.class);
+        // GLC| It's worth adding a combiner and you can reuse SumReducer
         job.setReducerClass(SumReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(DoubleWritable.class);
@@ -41,6 +42,13 @@ public class MainJob1 {
                 otherArgs.add(remainingArgs[i]);
             }
         }
+        // It's worth playing with compression
+        // http://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
+        // GLC| mapreduce.map.output.compress [false]	Should the outputs of the maps be compressed before being sent across the network. Uses SequenceFile compression.
+        // GLC| mapreduce.map.output.compress.codec[org.apache.hadoop.io.compress.DefaultCodec]	If the map outputs are compressed, how should they be compressed?
+        // GLC| conf.set("mapreduce.map.output.compress", true)
+        // GLC| FileOutputFormat.setCompressOutput();
+        // GLC| FileOutputFormat.setOutputCompressorClass(job, COMP_CLASS.class);
         FileInputFormat.addInputPath(job, new Path(otherArgs.get(0)));
         FileOutputFormat.setOutputPath(job, new Path(otherArgs.get(1)));
 

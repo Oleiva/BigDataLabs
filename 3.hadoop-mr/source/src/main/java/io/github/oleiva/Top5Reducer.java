@@ -30,6 +30,7 @@ public class Top5Reducer extends Reducer<Text, LongWritable, LongWritable, Text>
             count = val.get();
         }
 
+        // GLC| What about key collisions? I'd use TreeSet
         tmap2.put(count, name);
 
         if (tmap2.size() > TOP_SIZE) {
@@ -42,6 +43,7 @@ public class Top5Reducer extends Reducer<Text, LongWritable, LongWritable, Text>
         for (Map.Entry<Long, String> entry : tmap2.entrySet()) {
             long count = entry.getKey();
             String name = entry.getValue();
+            // GLC: What about joining Airline Name?
             context.write(new LongWritable(count), new Text(name));
         }
     }
